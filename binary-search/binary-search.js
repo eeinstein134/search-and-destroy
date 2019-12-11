@@ -2,7 +2,19 @@
 
 // Complete this algo
 const binarySearch = (array, target) => {
-	
+	let mid = Math.floor(array.length / 2);
+	if (!array.length) {
+		return false
+	}
+	if (array[mid] === target) {
+		return true;
+	}
+	if (array[mid] > target) {
+		return binarySearch(array.slice(0,mid), target);
+	} else if (array[mid] < target) {
+		return binarySearch(array.slice(mid+1), target);
+	}
+	return false;
 };
 
 /*
